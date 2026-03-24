@@ -1,0 +1,98 @@
+baseURL = "https://test.ipac28.org/"
+languageCode = "en-us"
+title = "IPAC'28 - International Particle Accelerator Conference"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[params]
+  logo_prefix = "IPAC"
+  logo_suffix = "'28"
+  logo_image = "/img/ipac28_1200x608.png"
+  conf_short_name = "IPAC'28"
+  conf_full_name = "16th International Particle Accelerator Conference"
+  conf_dates = "May 19-24, 2028"
+  conf_location = "Global Convention Center, City, Country"
+  email = "contact@ipac28.org"
+  registration_link = "/register/"
+  abstract_deadline = "December 5, 2027"
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 10
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 20
+
+[[menu.main]]
+  name = "Important Dates"
+  url = "/dates/"
+  weight = 30
+
+[[menu.main]]
+  name = "Program"
+  url = "/program/"
+  weight = 40
+
+[[menu.main]]
+  name = "Sponsors"
+  url = "/sponsors/"
+  weight = 50
+
+[[menu.main]]
+  name = "Committees"
+  url = "/committees/"
+  weight = 60
+
+[[menu.footer_quick]]
+  name = "About Conference"
+  url = "/about/"
+  weight = 10
+
+[[menu.footer_quick]]
+  name = "Important Dates"
+  url = "/dates/"
+  weight = 20
+
+[[menu.footer_quick]]
+  name = "Scientific Program"
+  url = "/program/"
+  weight = 30
+
+[[menu.footer_quick]]
+  name = "Exhibitors & Sponsors"
+  url = "/sponsors/"
+  weight = 40
+
+[[menu.footer_quick]]
+  name = "Committees"
+  url = "/committees/"
+  weight = 50
+
+[[menu.footer_info]]
+  name = "Registration Fees"
+  url = "/register/"
+  weight = 10
+
+[[menu.footer_info]]
+  name = "Visa Information"
+  url = "/visa/"
+  weight = 20
+
+[[menu.footer_info]]
+  name = "Accommodation"
+  url = "/accommodation/"
+  weight = 30
+
+[[menu.footer_info]]
+  name = "Policies & Code of Conduct"
+  url = "/policies/"
+  weight = 40
+
+[[menu.footer_info]]
+  name = "FAQ"
+  url = "/faq/"
+  weight = 50

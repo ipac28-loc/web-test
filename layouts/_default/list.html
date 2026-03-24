@@ -1,0 +1,19 @@
+{{ define "main" }}
+<section class="page-hero" style="min-height: 200px;">
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+        <h1 class="fade-up delay-1">{{ .Title }}</h1>
+    </div>
+</section>
+<main class="section bg-light text-page">
+    <div class="container fade-up delay-2">
+        <div style="background: white; padding: 3rem; border-radius: 8px; box-shadow: var(--shadow-sm); min-height: 400px; line-height: 1.8;">
+            <ul style="list-style-type: none; padding-left: 0;">
+                {{ range .Pages }}
+                    <li style="margin-bottom: 1rem;"><a href="{{ .Permalink }}" style="color: var(--clr-primary); font-weight: 500;">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+</main>
+{{ end }}

@@ -1,0 +1,70 @@
+{{ define "head" }}
+<style>
+    .page-hero {
+        height: 40vh;
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background-color: var(--clr-primary);
+        color: white;
+        padding-top: 80px;
+    }
+    .page-hero-overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 44, 89, 0.8) 100%);
+        z-index: 1;
+    }
+    .page-hero-content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+    }
+    .page-hero h1 {
+        color: white;
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+    }
+    .breadcrumb {
+        display: flex;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .breadcrumb a {
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .breadcrumb a:hover {
+        color: white;
+    }
+</style>
+{{ end }}
+
+{{ define "main" }}
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+        <div class="breadcrumb fade-up">
+            <a href="{{ "/" | relURL }}">Home</a> <span>/</span> <span>{{ .Title }}</span>
+        </div>
+        <h1 class="fade-up delay-1">{{ .Title }}</h1>
+    </div>
+</section>
+
+<!-- Main Content -->
+<main class="section bg-light text-page">
+    <div class="container fade-up delay-2">
+        {{ if .Params.custom_layout }}
+            {{ .Content }}
+        {{ else }}
+            <div style="background: white; padding: 3rem; border-radius: 8px; box-shadow: var(--shadow-sm); min-height: 400px; line-height: 1.8;">
+                <h2 style="color: var(--clr-primary); margin-bottom: 1.5rem;">{{ .Title }} Overview</h2>
+                <div style="width: 60px; height: 4px; background-color: var(--clr-secondary); margin-bottom: 2rem; border-radius: 2px;"></div>
+                {{ .Content }}
+            </div>
+        {{ end }}
+    </div>
+</main>
+{{ end }}

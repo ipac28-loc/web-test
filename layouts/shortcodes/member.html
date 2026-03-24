@@ -1,0 +1,8 @@
+<div class="member-card">
+    <div class="member-avatar"><i class="fas fa-{{ default "user" (.Get "icon") }}"></i></div>
+    <div class="member-info">
+        {{ if .Get "role" }}<div class="member-role">{{ .Get "role" }}</div>{{ end }}
+        <h4>{{ .Get "name" }}</h4>
+        <div class="member-inst">{{ .Get "inst" }}</div>
+    </div>
+</div>

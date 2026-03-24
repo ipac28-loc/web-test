@@ -1,0 +1,23 @@
+<header class="navbar" id="navbar">
+    <div class="container">
+        <a href="{{ "/" | relURL }}" class="logo">
+            {{ if .Site.Params.logo_image }}
+                <img src="{{ .Site.Params.logo_image | relURL }}" alt="{{ .Site.Params.conf_short_name }} Logo" style="height: 40px; width: auto; object-fit: contain;">
+            {{ else }}
+                <span class="logo-text">{{ .Site.Params.logo_prefix }}<span class="highlight">{{ .Site.Params.logo_suffix }}</span></span>
+            {{ end }}
+        </a>
+        
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav class="nav-links" id="nav-links">
+            {{ $current := . }}
+            {{ range .Site.Menus.main }}
+                <a href="{{ .URL | relURL }}" {{ if or ($current.IsMenuCurrent "main" .) (and (eq .URL "/") ($current.IsHome)) }}class="active"{{ end }}>{{ .Name }}</a>
+            {{ end }}
+            <a href="{{ .Site.Params.registration_link | relURL }}" class="btn btn-primary nav-btn">Register</a>
+        </nav>
+    </div>
+</header>

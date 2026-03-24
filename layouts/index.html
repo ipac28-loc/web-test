@@ -1,63 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPAC'2X - International Particle Accelerator Conference</title>
-    <meta name="description" content="Official website for the 16th International Particle Accelerator Conference. Join the worldwide particle accelerator community.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <!-- Navigation -->
-    <header class="navbar" id="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <span class="logo-text">IPAC<span class="highlight">'2X</span></span>
-            </a>
-            
-            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <nav class="nav-links" id="nav-links">
-                <a href="index.html" class="active">Home</a>
-                <a href="about.html">About</a>
-                <a href="dates.html">Important Dates</a>
-                <a href="program.html">Program</a>
-                <a href="sponsors.html">Sponsors</a>
-                <a href="register.html" class="btn btn-primary nav-btn">Register</a>
-            </nav>
-        </div>
-    </header>
-
+{{ define "main" }}
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-bg">
-            <!-- Using a high-quality placeholder image for scientific/tech theme -->
             <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Accelerator Background">
             <div class="hero-overlay"></div>
         </div>
         
         <div class="container hero-content">
-            <div class="badge fade-up">16th International Conference</div>
-            <h1 class="fade-up delay-1">International Particle Accelerator Conference</h1>
+            <div class="badge fade-up">International Conference</div>
+            <h1 class="fade-up delay-1">{{ .Site.Params.conf_full_name }}</h1>
             <p class="hero-details fade-up delay-2">
-                <i class="fas fa-calendar-alt"></i> May 19-24, 202X &nbsp;|&nbsp; 
-                <i class="fas fa-map-marker-alt"></i> Global Convention Center, City, Country
+                <i class="fas fa-calendar-alt"></i> {{ .Site.Params.conf_dates }} &nbsp;|&nbsp; 
+                <i class="fas fa-map-marker-alt"></i> {{ .Site.Params.conf_location }}
             </p>
             <div class="hero-actions fade-up delay-3">
-                <a href="program.html" class="btn btn-primary btn-lg">Submit Abstract</a>
-                <a href="about.html" class="btn btn-outline btn-lg">Learn More</a>
+                <a href="{{ "program/" | relURL }}" class="btn btn-primary btn-lg">Submit Abstract</a>
+                <a href="{{ "about/" | relURL }}" class="btn btn-outline btn-lg">Learn More</a>
             </div>
         </div>
     </section>
@@ -97,8 +55,8 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-text fade-up">
-                    <h2 class="section-title">Welcome to IPAC'2X</h2>
-                    <p>The International Particle Accelerator Conference (IPAC) is the main international event for the worldwide particle accelerator field and industry. The IPAC'2X edition brings together accelerator scientists, engineers, students, and vendors from across the globe.</p>
+                    <h2 class="section-title">Welcome to {{ .Site.Params.conf_short_name }}</h2>
+                    <p>The International Particle Accelerator Conference (IPAC) is the main international event for the worldwide particle accelerator field and industry. The {{ .Site.Params.conf_short_name }} edition brings together accelerator scientists, engineers, students, and vendors from across the globe.</p>
                     <p>Attendees will have the opportunity to learn about the most recent achievements in particle accelerators and their applications, discover the newest products and services, and establish valuable global connections.</p>
                     
                     <div class="stats-grid">
@@ -147,7 +105,7 @@
                     <div class="date-icon"><i class="fas fa-upload"></i></div>
                     <div class="date-content">
                         <h4>Abstract Deadline</h4>
-                        <p class="date highlight-text">December 5, 202X</p>
+                        <p class="date highlight-text">{{ .Site.Params.abstract_deadline }}</p>
                     </div>
                 </div>
                 <!-- Date Card 3 -->
@@ -185,7 +143,7 @@
             </div>
             
             <div class="text-center mt-4 fade-up">
-                <a href="#" class="btn btn-outline">View Full Schedule</a>
+                <a href="{{ "dates/" | relURL }}" class="btn btn-outline">View Full Schedule</a>
             </div>
         </div>
     </section>
@@ -203,8 +161,8 @@
                     <div class="news-content">
                         <span class="news-date">August 15, 202X</span>
                         <h3 class="news-title">Exhibitor Prospectus Available</h3>
-                        <p class="news-excerpt">The exhibitor prospectus for IPAC'2X is now available. Secure your booth space early as prime locations are assigned on a first-come, first-served basis.</p>
-                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        <p class="news-excerpt">The exhibitor prospectus for {{ .Site.Params.conf_short_name }} is now available. Secure your booth space early as prime locations are assigned on a first-come, first-served basis.</p>
+                        <a href="{{ "sponsors/" | relURL }}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
                 
@@ -214,7 +172,7 @@
                         <span class="news-date">July 20, 202X</span>
                         <h3 class="news-title">Student Grant Applications Open</h3>
                         <p class="news-excerpt">Applications for the student grant program are now being accepted. Eligible students can receive support for travel and accommodation during the conference.</p>
-                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        <a href="{{ "about/" | relURL }}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
                 
@@ -224,7 +182,7 @@
                         <span class="news-date">June 05, 202X</span>
                         <h3 class="news-title">Venue Information Updated</h3>
                         <p class="news-excerpt">Detailing accommodations, transportation, and visa information for international attendees is now available on our travel portal.</p>
-                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        <a href="{{ "accommodation/" | relURL }}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
             </div>
@@ -258,70 +216,8 @@
                 </div>
             </div>
             <div class="text-center mt-4 fade-up">
-                <a href="#" class="btn btn-outline">Become a Sponsor</a>
+                <a href="{{ "sponsors/" | relURL }}" class="btn btn-outline">Become a Sponsor</a>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col brand-col">
-                    <a href="index.html" class="logo">
-                        <span class="logo-text">IPAC<span class="highlight">'2X</span></span>
-                    </a>
-                    <p class="footer-desc">The 16th International Particle Accelerator Conference. Bringing together the brightest minds in accelerator science and engineering.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="about.html">About Conference</a></li>
-                        <li><a href="dates.html">Important Dates</a></li>
-                        <li><a href="program.html">Scientific Program</a></li>
-                        <li><a href="sponsors.html">Exhibitors & Sponsors</a></li>
-                        <li><a href="committees.html">Committees</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Information</h4>
-                    <ul class="footer-links">
-                        <li><a href="register.html">Registration Fees</a></li>
-                        <li><a href="visa.html">Visa Information</a></li>
-                        <li><a href="accommodation.html">Accommodation</a></li>
-                        <li><a href="policies.html">Policies & Code of Conduct</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Newsletter</h4>
-                    <p>Subscribe to our newsletter for the latest updates.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Email Address" required>
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 202X IPAC Conference. All rights reserved.</p>
-                <div class="legal-links">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Use</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Custom Logic -->
-    <script src="js/main.js"></script>
-</body>
-</html>
+{{ end }}
